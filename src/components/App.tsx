@@ -64,9 +64,6 @@ const AppArea = styled.div`
   height: 100vh;
   background-color: ${backgroundColor};
 `;
-const Main = styled.main`
-  padding: 20px;
-`;
 
 interface ResponsiveDrawerProps {
   container?: Element;
@@ -98,7 +95,7 @@ const App = (props: ResponsiveDrawerProps) => {
                 <MenuIcon />
               </IconButton>
               <Typography variant="h6" noWrap>
-                Responsive drawer
+                React App
               </Typography>
             </Toolbar>
           </CustomAppBar>

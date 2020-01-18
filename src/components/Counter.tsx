@@ -17,12 +17,12 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const CustomIncrement = styled(Button)`
-  background: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
-  box-shadow: 0 3px 5px 2px rgba(42, 82, 152, 0.3);
-`;
-const CustomDecrement = styled(Button)`
   background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
   box-shadow: 0 3px 5px 2px rgba(255, 135, 103, 0.3);
+`;
+const CustomDecrement = styled(Button)`
+  background: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+  box-shadow: 0 3px 5px 2px rgba(42, 82, 152, 0.3);
 `;
 
 const Counter = () => {
@@ -34,26 +34,28 @@ const Counter = () => {
   const decrement = () => dispatch(counterModule.actions.decrement({}));
 
   return (
-    <div className="App">
+    <>
       <Typography variant="h3">Counter: {counter}</Typography>
       <Typography variant="body1">Example Redux Toolkit</Typography>
       <div className={classes.spacing}>
-        <CustomIncrement
-          variant="contained"
-          color="primary"
-          onClick={increment}
-        >
-          increment
-        </CustomIncrement>
         <CustomDecrement
           variant="contained"
           color="secondary"
+          size="large"
           onClick={decrement}
         >
           decrement
         </CustomDecrement>
+        <CustomIncrement
+          variant="contained"
+          color="primary"
+          size="large"
+          onClick={increment}
+        >
+          increment
+        </CustomIncrement>
       </div>
-    </div>
+    </>
   );
 };
 

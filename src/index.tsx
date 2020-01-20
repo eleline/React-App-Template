@@ -5,7 +5,6 @@ import App from './components/App';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Provider } from 'react-redux';
 import { setupStore } from './store';
-// @ts-ignore
 import * as serviceWorker from './serviceWorker';
 
 const store = setupStore();
@@ -19,5 +18,4 @@ ReactDOM.render(
 	document.getElementById('root'),
 );
 
-// @ts-ignore
 serviceWorker.unregister();

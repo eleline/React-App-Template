@@ -5,10 +5,12 @@ import {
 } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import counterModule from './Counter';
+import userListModule from './UserList';
 
 // rootReducer
 const rootReducer = combineReducers({
 	counter: counterModule.reducer,
+	user: userListModule.reducer,
 });
 
 // setup

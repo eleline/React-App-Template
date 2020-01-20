@@ -20,10 +20,6 @@ const UserList: React.FC = () => {
 
 	const changeUser = (inputName: string) => {
 		setName(inputName);
-		const user = {
-			name: name,
-			age: 20,
-		};
 	};
 
 	const testUser = {
@@ -46,13 +42,13 @@ const UserList: React.FC = () => {
 				/>
 			</form>
 			<ButtonArea>
-				<Button onClick={setUser}>setUser</Button>
+				<Button onClick={setUser}>set User</Button>
 				<Button
 					variant="contained"
 					color="primary"
 					onClick={() => dispatch(fetchAsync())}
 				>
-					setUserDatabase
+					set user database
 				</Button>
 			</ButtonArea>
 		</>

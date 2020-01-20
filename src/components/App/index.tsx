@@ -1,6 +1,6 @@
 import React from 'react';
-import Counter from './Counter';
-import CustomDrawer from './CustomDrawer';
+import Counter from '../Counter';
+import CustomDrawer from '../CustomDrawer';
 import { StylesProvider } from '@material-ui/styles';
 import {
 	createStyles,

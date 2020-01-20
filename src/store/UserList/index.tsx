@@ -25,7 +25,8 @@ const userListModule = createSlice({
 export const { fetchStart, setUser } = userListModule.actions;
 
 export function fetchAsync() {
-	return async function(dispatch) {
+	return async function(dispatch: DispatchProp) {
+		// @ts-ignore
 		dispatch(userListModule.actions.fetchStart({}));
 
 		try {

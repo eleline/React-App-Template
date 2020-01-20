@@ -19,4 +19,5 @@ ReactDOM.render(
 	document.getElementById('root'),
 );
 
+// @ts-ignore
 serviceWorker.unregister();

@@ -1,5 +1,4 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -8,12 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import HomeIcon from '@material-ui/icons/Home';
-
-const useStyles = makeStyles((theme: Theme) =>
-	createStyles({
-		toolbar: theme.mixins.toolbar,
-	}),
-);
+import { useStyles } from './style';
 
 const Drawer: React.FC = () => {
 	const classes = useStyles({});

@@ -3,11 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import userListModule, { fetchAsync, setUser } from '../../store/UserList';
-import styled from 'styled-components';
-
-const ButtonArea = styled.div`
-	margin-top: 18px;
-`;
+import { ButtonArea } from './style';
 
 interface User {
 	user: {

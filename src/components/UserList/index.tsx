@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import userListModule, { fetchAsync, setUser } from '../../store/UserList';
 import { ButtonArea } from './style';
 
@@ -31,7 +32,9 @@ const UserList: React.FC = () => {
 
 	return (
 		<>
-			<h2>My name is {user.name}</h2>
+			<Typography variant="h3" component="h2">
+				My name is {user.name}
+			</Typography>
 			<form noValidate autoComplete="off">
 				<TextField
 					id="name"

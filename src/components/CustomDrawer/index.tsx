@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -17,13 +18,15 @@ const Drawer: React.FC = () => {
 			<div className={classes.toolbar} />
 			<Divider />
 			<List>
-				{['Home'].map((text, index) => (
-					<ListItem button key={text}>
-						<ListItemIcon>
-							<HomeIcon />
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItem>
+				{['user-list', 'counter'].map((text, index) => (
+					<Link to={text} key={text} className={classes.linkText}>
+						<ListItem button>
+							<ListItemIcon>
+								<HomeIcon />
+							</ListItemIcon>
+							<ListItemText primary={text} />
+						</ListItem>
+					</Link>
 				))}
 			</List>
 			<Divider />

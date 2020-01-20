@@ -18,7 +18,9 @@ const Counter = () => {
 
 	return (
 		<>
-			<Typography variant="h3">Counter: {counter}</Typography>
+			<Typography variant="h3" component="h2">
+				Counter: {counter}
+			</Typography>
 			<Typography paragraph>Example Redux Toolkit</Typography>
 			<div className={classes.spacing}>
 				<CustomDecrement

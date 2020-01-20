@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Counter from '../Counter';
 import UserList from '../UserList';
 import CustomDrawer from '../CustomDrawer';
@@ -28,61 +29,65 @@ const App = (props: ResponsiveDrawerProps) => {
 
 	return (
 		<StylesProvider injectFirst>
-			<AppArea>
-				<div className={classes.root}>
-					<CustomAppBar position="fixed" className={classes.appBar}>
-						<Toolbar>
-							<IconButton
-								color="inherit"
-								aria-label="open drawer"
-								edge="start"
-								onClick={handleDrawerToggle}
-								className={classes.menuButton}
-							>
-								<MenuIcon />
-							</IconButton>
-							<Typography variant="h6" noWrap>
-								React App
-							</Typography>
-						</Toolbar>
-					</CustomAppBar>
-					<nav className={classes.drawer} aria-label="mailbox folders">
-						<Hidden smUp implementation="css">
-							<Drawer
-								container={container}
-								variant="temporary"
-								anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-								open={mobileOpen}
-								onClose={handleDrawerToggle}
-								classes={{
-									paper: classes.drawerPaper,
-								}}
-								ModalProps={{
-									keepMounted: true,
-								}}
-							>
-								<CustomDrawer />
-							</Drawer>
-						</Hidden>
-						<Hidden xsDown implementation="css">
-							<Drawer
-								classes={{
-									paper: classes.drawerPaper,
-								}}
-								variant="permanent"
-								open
-							>
-								<CustomDrawer />
-							</Drawer>
-						</Hidden>
-					</nav>
-					<main className={classes.content}>
-						<div className={classes.toolbar} />
-						<UserList />
-						{/* <Counter /> */}
-					</main>
-				</div>
-			</AppArea>
+			<Router>
+				<AppArea>
+					<div className={classes.root}>
+						<CustomAppBar position="fixed" className={classes.appBar}>
+							<Toolbar>
+								<IconButton
+									color="inherit"
+									aria-label="open drawer"
+									edge="start"
+									onClick={handleDrawerToggle}
+									className={classes.menuButton}
+								>
+									<MenuIcon />
+								</IconButton>
+								<Typography variant="h6" noWrap>
+									React App
+								</Typography>
+							</Toolbar>
+						</CustomAppBar>
+						<nav className={classes.drawer} aria-label="mailbox folders">
+							<Hidden smUp implementation="css">
+								<Drawer
+									container={container}
+									variant="temporary"
+									anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+									open={mobileOpen}
+									onClose={handleDrawerToggle}
+									classes={{
+										paper: classes.drawerPaper,
+									}}
+									ModalProps={{
+										keepMounted: true,
+									}}
+								>
+									<CustomDrawer />
+								</Drawer>
+							</Hidden>
+							<Hidden xsDown implementation="css">
+								<Drawer
+									classes={{
+										paper: classes.drawerPaper,
+									}}
+									variant="permanent"
+									open
+								>
+									<CustomDrawer />
+								</Drawer>
+							</Hidden>
+						</nav>
+						<main className={classes.content}>
+							<div className={classes.toolbar} />
+							<Switch>
+								<Route path="/user-list" exact component={UserList} />
+								<Route path="/counter" exact component={Counter} />
+							</Switch>
+						</main>
+					</div>
+				</AppArea>
+			</Router>
 		</StylesProvider>
 	);
 };

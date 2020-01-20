@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import userListModule from '../../store/UserList';
+import TextField from '@material-ui/core/TextField';
+import userListModule, { fetchAsync, setUser } from '../../store/UserList';
+import styled from 'styled-components';
 
-interface UserState {
+const ButtonArea = styled.div`
+	margin-top: 18px;
+`;
+
+interface User {
 	user: {
 		name: string;
 		age: number;
@@ -12,27 +18,47 @@ interface UserState {
 
 const UserList: React.FC = () => {
 	const dispatch = useDispatch();
-	const user = useSelector((state: UserState) => state.user);
-	console.log(user);
+	const user = useSelector((state: User) => state.user);
+
+	const [name, setName] = useState('');
+
+	const changeUser = (inputName: string) => {
+		setName(inputName);
+		const user = {
+			name: name,
+			age: 20,
+		};
+	};
 
 	const testUser = {
-		user: {
-			name: 'RF',
-			age: 20,
-		},
+		name: name,
+		age: 20,
 	};
 
 	const setUser = () => dispatch(userListModule.actions.setUser(testUser));
-	const setUserDatabase = () =>
-		dispatch(userListModule.actions.setUserDatabase({}));
 
 	return (
 		<>
 			<h2>My name is {user.name}</h2>
-			<Button onClick={setUser}>setUser</Button>
-			<Button variant="contained" color="primary" onClick={setUserDatabase}>
-				setUserDatabase
-			</Button>
+			<form noValidate autoComplete="off">
+				<TextField
+					id="name"
+					label="Your name"
+					onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+						changeUser(e.target.value);
+					}}
+				/>
+			</form>
+			<ButtonArea>
+				<Button onClick={setUser}>setUser</Button>
+				<Button
+					variant="contained"
+					color="primary"
+					onClick={() => dispatch(fetchAsync())}
+				>
+					setUserDatabase
+				</Button>
+			</ButtonArea>
 		</>
 	);
 };

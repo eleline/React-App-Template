@@ -79,6 +79,7 @@ const App = (props: ResponsiveDrawerProps) => {
 					<main className={classes.content}>
 						<div className={classes.toolbar} />
 						<UserList />
+						{/* <Counter /> */}
 					</main>
 				</div>
 			</AppArea>

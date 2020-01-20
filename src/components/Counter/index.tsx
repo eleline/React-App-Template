@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 
-interface CounterState {
+interface Counter {
 	counter: number;
 }
 
@@ -31,7 +31,7 @@ const CustomDecrement = styled(Button)`
 
 const Counter = () => {
 	const dispatch = useDispatch();
-	const counter = useSelector((state: CounterState) => state.counter);
+	const counter = useSelector((state: Counter) => state.counter);
 	const classes = useStyles({});
 
 	const increment = () => dispatch(counterModule.actions.increment({}));

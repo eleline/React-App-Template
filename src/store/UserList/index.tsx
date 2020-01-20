@@ -1,19 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { DispatchProp } from 'react-redux';
 import { get, test } from '../../api/firebase';
+import { DispatchProp } from 'react-redux';
 
 interface userState {
-	user: {
-		name: string;
-		age: number;
-	};
+	name: string;
+	age: number;
 }
 
 const initialState: userState = {
-	user: {
-		name: '',
-		age: 0,
-	},
+	name: 'Test',
+	age: 0,
 };
 
 // createSlice() で actions と reducers を一気に生成
@@ -21,23 +17,23 @@ const userListModule = createSlice({
 	name: 'user',
 	initialState: initialState,
 	reducers: {
+		fetchStart: (state, action) => state,
 		setUser: (state, action: PayloadAction<userState>) => action.payload,
-		setUserDatabase: (state, action) => state,
 	},
 });
 
-// export const getUserAsyncTask = () => {
-// 	return async function(
-// 		dispatch: DispatchProp,
-// 		action: PayloadAction<userState>,
-// 	) {
-// 		console.log(action.payload);
-// 		try {
-// 			test();
-// 		} catch (e) {
-// 			console.error(e);
-// 		}
-// 	};
-// };
+export const { fetchStart, setUser } = userListModule.actions;
+
+export function fetchAsync() {
+	return async function(dispatch) {
+		dispatch(userListModule.actions.fetchStart({}));
+
+		try {
+			console.log('fetchAsync');
+		} catch (e) {
+			console.error(e);
+		}
+	};
+}
 
 export default userListModule;

@@ -4,7 +4,7 @@ import 'normalize.css';
 import App from './components/App';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Provider } from 'react-redux';
-import { setupStore } from './store/store';
+import { setupStore } from './store';
 // @ts-ignore
 import * as serviceWorker from './serviceWorker';
 

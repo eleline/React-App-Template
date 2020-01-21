@@ -10,7 +10,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import HomeIcon from '@material-ui/icons/Home';
 import { useStyles } from './style';
 
-const Drawer: React.FC = () => {
+const Drawer: React.FC = props => {
 	const classes = useStyles({});
 
 	return (

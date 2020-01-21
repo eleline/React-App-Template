@@ -27,6 +27,7 @@ const App = (props: ResponsiveDrawerProps) => {
 	const classes = useStyles({});
 	const theme = useTheme();
 	const [mobileOpen, setMobileOpen] = React.useState(false);
+	console.log(mobileOpen);
 
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
@@ -68,7 +69,7 @@ const App = (props: ResponsiveDrawerProps) => {
 										keepMounted: true,
 									}}
 								>
-									<CustomDrawer />
+									<CustomDrawer mobileToggle={setMobileOpen} />
 								</Drawer>
 							</Hidden>
 							<Hidden xsDown implementation="css">
@@ -79,7 +80,7 @@ const App = (props: ResponsiveDrawerProps) => {
 									variant="permanent"
 									open
 								>
-									<CustomDrawer />
+									<CustomDrawer mobileToggle={setMobileOpen} />
 								</Drawer>
 							</Hidden>
 						</nav>

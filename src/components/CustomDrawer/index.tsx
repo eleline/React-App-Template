@@ -10,8 +10,16 @@ import MailIcon from '@material-ui/icons/Mail';
 import HomeIcon from '@material-ui/icons/Home';
 import { useStyles } from './style';
 
-const Drawer: React.FC = props => {
+interface DrawerProps {
+	mobileToggle: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Drawer: React.FC<DrawerProps> = props => {
 	const classes = useStyles({});
+
+	const closeDrawer = () => {
+		return props.mobileToggle(false);
+	};
 
 	return (
 		<>
@@ -19,7 +27,12 @@ const Drawer: React.FC = props => {
 			<Divider />
 			<List>
 				{['user-list', 'counter'].map((text, index) => (
-					<Link to={text} key={text} className={classes.linkText}>
+					<Link
+						to={text}
+						key={text}
+						className={classes.linkText}
+						onClick={closeDrawer}
+					>
 						<ListItem button>
 							<ListItemIcon>
 								<HomeIcon />

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import userListModule, { fetchAsync, setUser } from '../../store/UserList';
+import { actions } from '../../store/UserList';
 import { ButtonArea } from './style';
 
 interface User {
@@ -28,7 +28,7 @@ const UserList: React.FC = () => {
 		age: 20,
 	};
 
-	const setUser = () => dispatch(userListModule.actions.setUser(testUser));
+	const setUser = () => dispatch(actions.setUser(testUser));
 
 	return (
 		<>
@@ -49,7 +49,7 @@ const UserList: React.FC = () => {
 				<Button
 					variant="contained"
 					color="primary"
-					onClick={() => dispatch(fetchAsync())}
+					onClick={() => dispatch(actions.fetchStart({}))}
 				>
 					set user database
 				</Button>

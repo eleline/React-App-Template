@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { get, test } from '../../api/firebase';
-import { DispatchProp } from 'react-redux';
+import { Dispatch } from 'react';
 
 interface userState {
 	name: string;
@@ -22,11 +22,10 @@ const userListModule = createSlice({
 	},
 });
 
-export const { fetchStart, setUser } = userListModule.actions;
+export const actions = userListModule.actions;
 
 export function fetchAsync() {
-	return async function(dispatch: DispatchProp) {
-		// @ts-ignore
+	return async function(dispatch: Dispatch<any>) {
 		dispatch(userListModule.actions.fetchStart({}));
 
 		try {

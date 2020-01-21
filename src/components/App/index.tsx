@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch,
+	Redirect,
+} from 'react-router-dom';
 import Counter from '../Counter';
 import UserList from '../UserList';
 import CustomDrawer from '../CustomDrawer';
@@ -83,6 +88,7 @@ const App = (props: ResponsiveDrawerProps) => {
 							<Switch>
 								<Route path="/user-list" exact component={UserList} />
 								<Route path="/counter" exact component={Counter} />
+								<Redirect to="/user-list" />
 							</Switch>
 						</main>
 					</div>

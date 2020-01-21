@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import counterModule from '../../store/Counter';
+import { actions } from '../../store/Counter';
 import Typography from '@material-ui/core/Typography';
 import { useStyles, CustomDecrement, CustomIncrement } from './style';
 
@@ -13,8 +13,8 @@ const Counter = () => {
 	const counter = useSelector((state: Counter) => state.counter);
 	const classes = useStyles({});
 
-	const increment = () => dispatch(counterModule.actions.increment({}));
-	const decrement = () => dispatch(counterModule.actions.decrement({}));
+	const increment = () => dispatch(actions.increment());
+	const decrement = () => dispatch(actions.decrement());
 
 	return (
 		<>

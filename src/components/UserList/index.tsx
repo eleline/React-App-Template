@@ -49,7 +49,7 @@ const UserList: React.FC = () => {
 				<Button
 					variant="contained"
 					color="primary"
-					onClick={() => dispatch(actions.fetchStart({}))}
+					onClick={() => dispatch(actions.fetchStart())}
 				>
 					set user database
 				</Button>

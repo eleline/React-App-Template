@@ -6,7 +6,7 @@ React Hooks ✕ Redux Toolkit ×TypeScript ✕ Material UI
 
 Template to start building the latest React app.
 
-## Build Setting
+## Usage
 
 Package install.
 

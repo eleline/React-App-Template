@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
 	// webpack will take the files from ./src/index
 	entry: './src/index',
@@ -39,6 +41,8 @@ module.exports = {
 		historyApiFallback: true,
 	},
 	plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+		new CopyPlugin([{ from: './public', to: '.' }]),
 		new HtmlWebpackPlugin({
 			template: './public/index.html',
 			filename: 'index.html',
